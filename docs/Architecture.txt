@@ -1,0 +1,34 @@
+                         Kubernetes Cluster
+                                |
+                +---------------+---------------+
+                |                               |
+          monitoring-app                    monitoring
+                |                               |
+        +---------------+              +----------------+
+        | Flask App     |              | Prometheus     |
+        | 3 Replicas    |              | Grafana        |
+        +---------------+              | Alertmanager   |
+                |                      +----------------+
+                | /metrics                      |
+                v                               |
+        +---------------+                       |
+        | Service       |                       |
+        +---------------+                       |
+                |                               |
+                v                               |
+        +---------------+                       |
+        | ServiceMonitor|-----------------------+
+        +---------------+
+                |
+                v
+           Prometheus
+                |
+              PromQL
+                |
+                v
+             Grafana
+                |
+             Alerts
+                |
+                v
+          Alertmanager                          
