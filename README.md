@@ -1,4 +1,4 @@
-Kubernetes Application Observability & Alerting Platform
+**Kubernetes Application Observability & Alerting Platform**
 Project Overview
 This project implements a Kubernetes-based application observability and alerting platform using Prometheus, Grafana, Alertmanager, and the Prometheus Operator.
 
