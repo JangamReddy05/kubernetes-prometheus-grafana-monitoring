@@ -1,5 +1,7 @@
 **Kubernetes Application Observability & Alerting Platform**
+
 Project Overview
+
 This project implements a Kubernetes-based application observability and alerting platform using Prometheus, Grafana, Alertmanager, and the Prometheus Operator.
 
 A containerized Python Flask application is deployed inside Kubernetes with multiple replicas. The application exposes Prometheus-compatible metrics through the /metrics endpoint.
@@ -9,6 +11,7 @@ Prometheus discovers and scrapes the application using a Kubernetes ServiceMonit
 PrometheusRule resources are used to detect application failures and resource utilization issues. The project also demonstrates Kubernetes self-healing by intentionally deleting application pods and observing Kubernetes automatically create replacement pods.
 
 Project Objectives
+
 The main objectives of this project are:
 
 Deploy a containerized application on Kubernetes
@@ -26,6 +29,7 @@ Configure PrometheusRule-based alerts
 Test application failure scenarios
 Demonstrate Kubernetes self-healing
 Visualize application recovery using Grafana
+
 Architecture
                      Kubernetes Cluster
                             |
@@ -60,11 +64,12 @@ Architecture
           Alerts
             |
             v
-      Alertmanager
+      Alertmanager 
 Monitoring Flow
 User | v Flask Application | +------ /metrics | v Kubernetes Service | v ServiceMonitor | v Prometheus | +------ PromQL | v Grafana | v Monitoring Dashboard
 
 Technologies Used
+
 Technology	Purpose
 Kubernetes	Container orchestration
 Docker	Containerization
@@ -81,15 +86,19 @@ Python	Application development
 Flask	Web application framework
 Git	Version control
 GitHub	Source code hosting
+
 Project Structure
+
 kubernetes-prometheus-grafana-monitoring/ │ ├── README.md │ ├── application/ │ ├── namespace.yaml │ ├── deployment.yaml │ ├── service.yaml │ ├── app.py │ ├── Dockerfile │ └── requirements.txt │ ├── monitoring/ │ ├── servicemonitor.yaml │ └── prometheusrule.yaml │ ├── dashboards/ │ └── kubernetes-app-dashboard.json │ ├── screenshots/ │ ├── 01-project-structure.png │ ├── 02-cluster-running.png │ ├── 03-monitoring-pods.png │ ├── 04-application-running.png │ ├── 05-application-metrics.png │ ├── 06-prometheus-target-up.png │ ├── 07-promql-query.png │ ├── 08-grafana-dashboard.png │ ├── 09-alert-firing.png │ ├── 10-application-recovered.png │ ├── 11-self-healing.png │ └── 12-recovery-dashboard.png │ └── docs/ └── architecture.md
 
 Key Monitoring Capabilities
+
 The project monitors:
 
 Application Availability HTTP Request Rate Total HTTP Requests HTTP Request Duration CPU Utilization Memory Utilization Network Traffic Pod Availability Application Health
 
 Key Learnings
+
 Through this project, I demonstrated practical knowledge of:
 
 Kubernetes monitoring
@@ -106,32 +115,24 @@ Metrics-based troubleshooting
 Useful Kubernetes Commands
 Check application pods
 kubectl get pods -n monitoring-app
-
 Check application deployment
 kubectl get deployment -n monitoring-app
-
-Check application service
-kubectl get svc -n monitoring-app
-
+Check application servicekubectl get svc -n monitoring-app
 Check ServiceMonitor
 kubectl get servicemonitor -n monitoring
-
 Check PrometheusRule
 kubectl get prometheusrules -n monitoring
-
 Check monitoring pods
 kubectl get pods -n monitoring
-
 Check Helm release
 helm list -n monitoring
-
 Scale application
 kubectl scale deployment monitoring-demo-app --replicas=3 -n monitoring-app
-
 Watch application pods
 kubectl get pods -n monitoring-app -w
 
 Project Results
+
 The completed project demonstrates an end-to-end Kubernetes observability workflow:
 
 Application | v Docker Container | v Kubernetes Deployment | v Kubernetes Service | v ServiceMonitor | v Prometheus | +------ PromQL | v Grafana | +------ Dashboards | +------ Visualization | v PrometheusRule | v Alertmanager
@@ -141,6 +142,7 @@ The project also demonstrates:
 Failure ↓ Detection ↓ Alert ↓ Recovery ↓ Self-Healing ↓ Monitoring
 
 Future Improvements
+
 Potential future improvements include:
 
 Add Alertmanager notification integration
@@ -155,4 +157,5 @@ Add application latency SLO/SLI monitoring
 These future improvements align with the roadmap in the project source.
 
 Author
+
 JangamReddy05 Kubernetes | Docker | Helm | Prometheus | Grafana | Azure DevOps | Cloud & DevOps
